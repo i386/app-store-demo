@@ -9,11 +9,11 @@ node {
   parallel (
     'Firefox': {
         sh "echo 'setting up selenium environment'"
-        doBuild()
+        sh 'sleep 5000'
     },
     'Safari': {
         sh "echo 'setting up selenium environment'"
-        doBuild()
+        sh 'sleep 5000'
     },
     'Chrome': {
         sh "echo 'setting up selenium environment'"
@@ -32,5 +32,5 @@ node {
 }
 
 def doBuild() {
-    sh "mvn clean source:jar package"
+    sh "mvn clean source:jar package -Dmaven.test.failure.ignore"
 }
