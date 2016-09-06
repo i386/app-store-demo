@@ -33,6 +33,5 @@ node {
 }
 
 def doBuild() {
-    def mvnHome = tool 'M3'
-    sh "${mvnHome}/bin/mvn clean source:jar package"
+    sh "mvn clean source:jar package"
 }
