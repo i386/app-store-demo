@@ -20,7 +20,7 @@ node {
         sh "echo 'setting up selenium environment'"
         doBuild()
     },
-    'Chrome': {
+    'Internet Explorer': {
         sh "echo 'setting up selenium environment'"
         doBuild()
     }
