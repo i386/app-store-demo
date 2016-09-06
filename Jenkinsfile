@@ -3,7 +3,6 @@ node {
   checkout scm
   
   stage 'Build'
-  def mvnHome = tool 'M3'
   doBuild()
 
   stage 'Browser tests'
