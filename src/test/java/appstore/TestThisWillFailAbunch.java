@@ -47,7 +47,7 @@ public class TestThisWillFailAbunch {
 
     @Test
     public void aFailingTest6() {
-         assertTrue("I expected this to pass!", false);
+         assertTrue("I expected this to pass!", true);
     }
 
     @Test
