@@ -20,7 +20,7 @@ public class TestThisWillFailAbunch {
     @Ignore
     @Test
     public void aFailingTest3() {
-         assertTrue("I expected this to pass!", true);
+         assertTrue("I expected this to pass!", false);
     }
 
     //@Ignore
@@ -47,7 +47,7 @@ public class TestThisWillFailAbunch {
 
     @Test
     public void aFailingTest6() {
-         assertTrue("I expected this to pass!", true);
+         assertTrue("I expected this to pass!", false);
     }
 
     @Test
