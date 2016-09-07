@@ -20,7 +20,7 @@ public class TestThisWillFailAbunch {
     @Ignore
     @Test
     public void aFailingTest3() {
-         assertTrue("I expected this to pass!", false);
+         assertTrue("I expected this to pass!", true);
     }
 
     //@Ignore
