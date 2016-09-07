@@ -26,7 +26,7 @@ public class TestThisWillFailAbunch {
     //@Ignore
     @Test
     public void aFailingTest4() {
-         assertTrue("I expected this to pass!", true);
+        doSomething();
     }
 
     @Ignore
@@ -42,7 +42,7 @@ public class TestThisWillFailAbunch {
 
     @Test
     public void aFailingTest5() {
-         assertTrue("I expected this to pass!", true);
+        doSomething();
     }
 
     @Test
@@ -58,5 +58,19 @@ public class TestThisWillFailAbunch {
     @Test
     public void aPassingTest4() {
          assertTrue("Success!", true);
+    }
+
+    private void doSomething() {
+        interesting();
+    }
+    private void interesting() {
+        RubeGoldburgMachine machine = new RubeGoldburgMachine();
+        machine.processPayment();
+    }
+
+    private class RubeGoldburgMachine {
+        void processPayment() {
+            throw new IllegalStateException("bad payment code");
+        }
     }
 }
