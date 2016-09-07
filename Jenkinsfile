@@ -1,5 +1,5 @@
 pipeline {
-    agent docker:'maven:3.3.3'
+    agent docker:'java'
     stages {
         stage ('Build') {
             sh 'mvn clean source:jar package'
@@ -8,19 +8,19 @@ pipeline {
             parallel (
                 'Firefox': {
                     sh "echo 'setting up selenium environment'"
-                    sh 'sleep 5000'
+                    sh 'sleep 5'
                 },
                 'Safari': {
                     sh "echo 'setting up selenium environment'"
-                    sh 'sleep 5000'
+                    sh 'sleep 5'
                 },
                 'Chrome': {
                     sh "echo 'setting up selenium environment'"
-                    sh 'sleep 3000'
+                    sh 'sleep 3'
                 },
                 'Internet Explorer': {
                     sh "echo 'setting up selenium environment'"
-                    sh 'sleep 2000'
+                    sh 'sleep 3'
                 }
               )
         }
