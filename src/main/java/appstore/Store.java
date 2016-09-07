@@ -5,6 +5,7 @@ package appstore;
  */
 public class Store {
     public void paymentProcessor() {
-        throw new RuntimeException();
+        if (1 == 1)
+            throw new RuntimeException();
     }
 }
