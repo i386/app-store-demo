@@ -1,5 +1,5 @@
 pipeline {
-    agent docker:'java'
+    agent docker:'maven:3.3.3'
     stages {
         stage ('Build') {
             sh 'mvn clean source:jar package'
