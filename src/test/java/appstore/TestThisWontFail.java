@@ -1,4 +1,4 @@
-package failure;
+package appstore;
 
 import static org.junit.Assert.*;
 
