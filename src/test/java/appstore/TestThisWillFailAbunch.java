@@ -27,13 +27,14 @@ public class TestThisWillFailAbunch {
     //@Ignore
     @Test
     public void aFailingTest4() {
-        assertTrue("I expected this to pass!", true);
+        doSomething();
+//        assertTrue("I expected this to pass!", true);
     }
 
     @Ignore
     @Test
     public void aNewFailingTest31() {
-         assertTrue("I expected this to pass!", true);
+         doSomething();
     }
 
     @Test
