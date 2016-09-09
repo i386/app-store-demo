@@ -27,8 +27,8 @@ public class TestThisWillFailAbunch {
     //@Ignore
     @Test
     public void aFailingTest4() {
-        doSomething();
-//        assertTrue("I expected this to pass!", true);
+//        doSomething();
+        assertTrue("I expected this to pass!", true);
     }
 
     @Ignore
@@ -39,17 +39,20 @@ public class TestThisWillFailAbunch {
 
     @Test
     public void aNotherNewFailingTest4() {
-         assertTrue("I expected this to pass!", true);
+        doSomething();
+//         assertTrue("I expected this to pass!", true);
     }
 
     @Test
     public void aFailingTest5() {
-        assertTrue("I expected this to pass!", true);
+        doSomething();
+//        assertTrue("I expected this to pass!", true);
     }
 
     @Test
     public void aFailingTest6() {
-         assertTrue("I expected this to pass!", true);
+        doSomething();
+//         assertTrue("I expected this to pass!", true);
     }
 
     @Test
