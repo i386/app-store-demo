@@ -2,7 +2,9 @@ pipeline {
     agent label:''
     stages {
         stage ('Build') {
-            sh 'mvn clean source:jar package'
+            steps {
+              sh 'mvn clean source:jar package'
+            }
         }
         stage ('Browser Tests') {
             parallel (
@@ -25,10 +27,14 @@ pipeline {
               )
         }
         stage ('Static Analysis') {
-            sh 'mvn findbugs:findbugs'
+            steps {
+              sh 'mvn findbugs:findbugs'
+            }
         }
         stage ('Package') {
-            sh 'mvn source:jar package -Dmaven.test.skip'
+            steps {
+              sh 'mvn source:jar package -Dmaven.test.skip'
+            }
         }
     }
 
