@@ -33,7 +33,7 @@ pipeline {
               sh 'mvn findbugs:findbugs'
             }
         }
-        stage ('Package') {
+        stage ('Deploy') {
             steps {
               sh 'mvn source:jar package -Dmaven.test.skip'
             }
