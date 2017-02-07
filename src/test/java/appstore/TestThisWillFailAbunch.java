@@ -8,14 +8,14 @@ import org.junit.Test;
 public class TestThisWillFailAbunch {
     @Test
     public void aFailingTest() {
-         assertTrue("I expected this to pass!", true);
+         assertTrue("I expected this to pass!", false);
     }
 
     @Ignore
     @Test
     public void aFailingTest2() {
         // doSomething();
-        assertTrue("I expected this to pass!", true);
+        assertTrue("I expected this to pass!", false);
     }
 
     @Ignore
@@ -36,12 +36,12 @@ public class TestThisWillFailAbunch {
     @Test
     public void aNewFailingTest31() {
       //  doSomething();
-        assertTrue("I expected this to pass!", true);
+        assertTrue("I expected this to pass!", false);
     }
 
     @Test
     public void aNotherNewFailingTest4() {
-        // doSomething();
+        doSomething();
         assertTrue("I expected this to pass!", true);
     }
 
