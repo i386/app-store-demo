@@ -17,6 +17,7 @@ pipeline {
           "Firefox": {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 5 localhost'
+            sh 'SDsadadas'
             
           },
           "Safari": {
