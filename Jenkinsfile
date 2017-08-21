@@ -43,6 +43,7 @@ pipeline {
       }
     }
     stage('Deploy') {
+      when { branch 'master' }
       steps {
         sh 'mvn source:jar package -Dmaven.test.skip'
       }
