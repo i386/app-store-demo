@@ -12,32 +12,40 @@ pipeline {
       }
     }
     stage('Browser Tests') {
-      steps {
-        parallel(
-          "Firefox": {
+      parallel {
+        stage('Firefox') {
+          steps {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 5 localhost'
-            
-          },
-          "Safari": {
+          }
+        }
+        stage('Safari') {
+          steps {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 8 localhost'
-            
-          },
-          "Chrome": {
+          }
+        }
+        stage('Chrome') {
+          steps {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 3 localhost'
-            
-          },
-          "Internet Explorer": {
+          }
+        }
+        stage('Internet Explorer') {
+          steps {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 4 localhost'
-            
           }
-        )
+        }
       }
     }
     stage('Static Analysis') {
+      agent {
+        node {
+          label 'bob'
+        }
+        
+      }
       steps {
         sh 'mvn findbugs:findbugs'
       }
