@@ -22,17 +22,17 @@ pipeline {
           "Safari": {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 8 localhost'
-            
+            archive '**/target/*.jar'
           },
           "Chrome": {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 3 localhost'
-            
+            archive '**/target/*.jar'
           },
           "Internet Explorer": {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 4 localhost'
-            
+            archive '**/target/*.jar'
           }
         )
       }
@@ -51,7 +51,7 @@ pipeline {
   post {
     always {
       junit '**/target/surefire-reports/TEST-*.xml'
-      archive '**/target/*.jar'
+      // archive '**/target/*.jar'
       
     }
     
