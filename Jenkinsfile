@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'mvn clean source:jar package'
+        sh 'echo "test"'
       }
     }
     stage('Browser Tests') {
