@@ -12,29 +12,38 @@ pipeline {
       }
     }
     stage('Browser Tests') {
-      steps {
-        parallel(
-          "Firefox": {
+      parallel {
+        stage('Firefox') {
+          steps {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 5 localhost'
-            
-          },
-          "Safari": {
+            sh 'mvn test'
+          }
+        }
+        stage('Safari') {
+          steps {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 8 localhost'
             archive '**/target/*.jar'
-          },
-          "Chrome": {
+            sh 'mvn test'
+          }
+        }
+        stage('Chrome') {
+          steps {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 3 localhost'
             archive '**/target/*.jar'
-          },
-          "Internet Explorer": {
+            sh 'mvn test'
+          }
+        }
+        stage('Internet Explorer') {
+          steps {
             sh 'echo \'setting up selenium environment\''
             sh 'ping -c 4 localhost'
             archive '**/target/*.jar'
+            sh 'mvn test'
           }
-        )
+        }
       }
     }
     stage('Static Analysis') {
@@ -51,7 +60,6 @@ pipeline {
   post {
     always {
       junit '**/target/surefire-reports/TEST-*.xml'
-      // archive '**/target/*.jar'
       
     }
     
