@@ -19,6 +19,11 @@ pipeline {
             sh 'ping -c 5 localhost'
             sh 'mvn test'
           }
+          post {
+            always {
+              junit '**/target/surefire-reports/TEST-*.xml'
+            }
+          }
         }
         stage('Safari') {
           steps {
@@ -26,6 +31,11 @@ pipeline {
             sh 'ping -c 8 localhost'
             archive '**/target/*.jar'
             sh 'mvn test'
+          }
+          post {
+            always {
+              junit '**/target/surefire-reports/TEST-*.xml'
+            }
           }
         }
         stage('Chrome') {
@@ -35,6 +45,11 @@ pipeline {
             archive '**/target/*.jar'
             sh 'mvn test'
           }
+          post {
+            always {
+              junit '**/target/surefire-reports/TEST-*.xml'
+            }
+          }
         }
         stage('Internet Explorer') {
           steps {
@@ -42,6 +57,11 @@ pipeline {
             sh 'ping -c 4 localhost'
             archive '**/target/*.jar'
             sh 'mvn test'
+          }
+          post {
+            always {
+              junit '**/target/surefire-reports/TEST-*.xml'
+            }
           }
         }
       }
@@ -56,12 +76,5 @@ pipeline {
         sh 'mvn source:jar package -Dmaven.test.skip'
       }
     }
-  }
-  post {
-    always {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      
-    }
-    
   }
 }
